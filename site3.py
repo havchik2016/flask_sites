@@ -25,7 +25,7 @@ def advertise():
 @app.route("/image_mars")
 def image():
     return f'''<!doctype html>
-                <html lang="en">
+                <html lang="ru">
                   <head>
                     <meta charset="utf-8">
                     <title>Привет, Марс!</title>

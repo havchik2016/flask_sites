@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request
 
 app = Flask(__name__)
 
@@ -76,6 +76,32 @@ def promotion_image():
                       </body>
                     </html>'''
 
+
+@app.route("/astronaut_selection", methods=["GET", "POST"])
+def selection_form():
+    if request.method == "GET":
+        return f'''<!DOCTYPE html>
+                    <html>
+                        <head>
+                            <meta charset="utf-8"><link rel="stylesheet" 
+                            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+                            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+                            crossorigin="anonymous">
+                            <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}">
+                            <title>Отбор астронавтов</title>
+                        </head>
+                        <body>
+                            <h1>Анкета претендента на участие в миссии</h1>
+                            <div>
+                                <form class="login_form" method="post">
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введите фамилию" name="email">
+                                    <input type="password" class="form-control" id="password" placeholder="Введите имя" name="password">
+                                </form>
+                            </div>
+                        </body>
+                    </html>'''
+    elif request.method == "POST":
+        pass
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
