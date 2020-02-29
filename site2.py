@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def colonzation():
+def colonization():
     return "Миссия Колонизация Марса"
 
 
